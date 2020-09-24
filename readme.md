@@ -11,7 +11,7 @@ Before beginning with the new project there are a few things which should be edi
 - The license, if not using the MIT one, should be changed. Remember that this is referenced on the POM, readme and LICENSE files.
 
 Note that the Maven site is using the [Docs Maven Skin](https://github.com/Bernardo-MG/docs-maven-skin), which will have a few configuration requirements of its own.
-
+ 
 [![Maven Central](https://img.shields.io/maven-central/v/com.bap/ultramarinos.svg)][maven-repo]
 
 
