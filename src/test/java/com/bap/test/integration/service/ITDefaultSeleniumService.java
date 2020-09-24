@@ -26,8 +26,6 @@ package com.bap.test.integration.service;
 
 import static org.junit.Assert.assertNotNull;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.AfterEach;
@@ -41,9 +39,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxDriverLogLevel;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.TestPropertySource;
@@ -57,49 +52,49 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 @ExtendWith(SpringExtension.class)
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class })
 @WebAppConfiguration
-@ContextConfiguration(locations = { "classpath:context/service.xml",
-        "classpath:context/persistence.xml", "classpath:context/application-context.xml" })
+@ContextConfiguration(locations = { "classpath:context/service.xml", "classpath:context/persistence.xml",
+		"classpath:context/application-context.xml" })
 @TestPropertySource({ "classpath:config/persistence-access.properties" })
 public final class ITDefaultSeleniumService {
 
-    private static final String BASE_URL = "http://localhost:7080/ultramarinos/";
+	private static final String BASE_URL = "http://localhost:7080/ultramarinos/";
 
-    private static WebDriver driver;
+	private static WebDriver driver;
 
-    private ITDefaultSeleniumService() {
-        super();
-    }
+	private ITDefaultSeleniumService() {
+		super();
+	}
 
-    @BeforeAll
-    public static void setupClass() {
-        WebDriverManager.firefoxdriver().setup();
-    }
+	@BeforeAll
+	public static void setupClass() {
+		WebDriverManager.firefoxdriver().setup();
+	}
 
-    @BeforeEach
-    public void setUpTest() {
-        driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    }
+	@BeforeEach
+	public void setUpTest() {
+		driver = new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	}
 
-    @AfterEach
-    public void tearDownTest() {
-        driver.close();
-    }
+	@AfterEach
+	public void tearDownTest() {
+		driver.close();
+	}
 
-    @Test
-    public void testMainPage() {
-        driver.get(BASE_URL);
+	@Test
+	public void testMainPage() {
+		driver.get(BASE_URL);
 
-        WebElement mainSection = driver.findElement(By.id("main-section"));
-        assertNotNull(mainSection);
-    }
+		WebElement mainSection = driver.findElement(By.id("main-section"));
+		assertNotNull(mainSection);
+	}
 
-    @Test
-    public void testListing() {
-        driver.get(BASE_URL + "entity/list");
+	@Test
+	public void testListing() {
+		driver.get(BASE_URL + "entity/list");
 
-        WebElement mainSection = driver.findElement(By.id("main-section"));
-        assertNotNull(mainSection);
-    }
+		WebElement mainSection = driver.findElement(By.id("main-section"));
+		assertNotNull(mainSection);
+	}
 
 }
