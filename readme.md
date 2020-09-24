@@ -24,7 +24,7 @@ Note that the Maven site is using the [Docs Maven Skin](https://github.com/Berna
 ## Features
 
 The project by default comes with a useful series of features:
-
+ 
 - Preconfigured POM to begin developing a new [Spring MVC](https://spring.io) project.
 - Initial sample project including working persistence and exception handling
 - Integration with [Thymeleaf](http://www.thymeleaf.org/) for the view templates.
